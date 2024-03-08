@@ -19,7 +19,22 @@ $ npm install --save-dev \
     babel-loader \
     @babel/core \
     @babel/preset-env \
-    core-js
+    core-js \
+    clean-webpack-plugin \
+    copy-webpack-plugin \
+    webpack-glob-entries
+```
+
+
+### 3. Configuring Webpack
+
+Set up a webpack.config.js file
+
+
+### 4. Command
+
+```
+npm run build; k6 run dist/{file_name}.js
 ```
 
 
