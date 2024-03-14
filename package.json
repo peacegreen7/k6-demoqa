@@ -32,5 +32,10 @@
     "webpack": "^5.90.3",
     "webpack-cli": "^5.1.4",
     "webpack-glob-entries": "^1.0.1"
+  },
+  "dependencies": {
+    "@babel/preset-typescript": "^7.23.3",
+    "@types/webpack": "^5.28.5",
+    "typescript": "^5.4.2"
   }
 }

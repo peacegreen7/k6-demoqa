@@ -22,7 +22,7 @@ $ npm install --save-dev \
     core-js \
     clean-webpack-plugin \
     copy-webpack-plugin \
-    webpack-glob-entries
+    webpack-glob-entries \
 ```
 
 
