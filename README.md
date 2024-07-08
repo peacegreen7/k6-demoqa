@@ -1,25 +1,24 @@
 # EXAMPLE K6 PROJECT
 
 ## I. Installation
-- Follow the instruction in this link to setup k6: https://k6.io/docs/getting-started/installation/
-- Follow the instruction in this link install golang: https://go.dev/doc/install.
-- Setup golang environment variables.
-- ⚠ Warning: These changes on environment variables are only temporary, one must add these commands into bash profile for permanent changes
-- Export env variables in Linux/Mac OS:
-```
+### 1. Setup k6 and Golang
+- **k6**: Follow the instructions [here](https://k6.io/docs/getting-started/installation/).
+- **Golang**: Follow the instructions [here](https://go.dev/doc/install) and set up the Golang environment variables:
+```sh
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 ```
-### 1. Creating a project folder & initializing npm
-```
+
+### 2. Creating a project folder & initializing npm
+```sh
 $ mkdir ./{project-name} && \
     cd "$_" && \
     npm init -y
 ```
 
 
-### 2. Install the packages needed
-```
+### 3. Install the packages needed
+```sh
 $ npm install --save-dev \
     webpack \
     webpack-cli \
@@ -34,14 +33,14 @@ $ npm install --save-dev \
 ```
 
 
-### 3. Install babel 
-``` 
+### 4. Install babel 
+```sh 
 $ npm install --save-dev @babel/core @babel/preset-env @babel/preset-typescript babel-loader 
 ```
 
 
-### 4. Add config file 'babel.config.js' with code below:
-```
+### 5. Add config file 'babel.config.js' with code below:
+```js
 module.exports = {
     presets: [
       '@babel/preset-env',
@@ -50,11 +49,10 @@ module.exports = {
   };
 ```
 
-### 5. Check Webpack Configuration
-Ensure your Webpack configuration is set up to handle TypeScript files with Babel.
+### 6. Check Webpack Configuration
+Ensure your ***`webpack.config.js`*** is set up to handle TypeScript files with Babel:
 
-webpack.config.js
-```
+```js
 const path = require('path');
 
 module.exports = {
@@ -79,20 +77,34 @@ module.exports = {
 ```
 
 
-### 6. Build k6 executable file.
-This command will produce a binary k6 file in root folder and another one in dist/linux folder. The latter one could be used to execute on Linux servers
+### 7. Build k6 executable file.
+To produce a binary k6 file in root folder and another one in dist/linux folder
 
-Install npm packages: ```npm run install```
+```sh 
+$ npm run install
+```
 
-### 7. Getting Started
-- Execute ```npm run build``` to create bundle files, there should be some *.js files created inside dist folder.
-- ⚠ Warning: This command must be triggered every time there are changes in performance scripts.
-- Execute ```k6 run dist/{file_name}.js``` to verify whether your installation works as expected.
-- If scripts contain extensions, it is required to build an executable k6 binary file with command ```xk6 build --with [EXTENSION_REPOSITORY]```
-- Conclusion, in order to build and execute, you can combine both steps into one to save time: ``` npm run build; k6 run dist/{file_name}.js ```
+### 8. Getting Started
+- Build the project:
+```sh
+$ npm run build
+```
+This will create bundle files in the dist folder. Run this command every time you change performance scripts.
+- Verify the setup:
+```sh
+$ ./k6 run dist/{file_name}.js
+```
+- If using extensions, build an executable k6 binary file:
+```sh
+$ xk6 build --with [EXTENSION_REPOSITORY]
+```
+- Combine build and execution steps: 
+```sh
+$ npm run build; k6 run dist/{file_name}.js 
+```
 
 
 ## Reference documents
-- [Using k6 module](https://k6.io/docs/using-k6/modules/)
+- Using [k6](https://k6.io/docs/using-k6/modules/) module
 
 
